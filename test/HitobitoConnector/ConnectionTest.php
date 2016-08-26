@@ -13,5 +13,9 @@ use PHPUnit\Framework\TestCase;
 
 class ConnectionTest extends TestCase
 {
+    function testLoad(){
+
+        $this->assertEquals(1,1);
+    }
 
 }

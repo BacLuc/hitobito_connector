@@ -11,6 +11,9 @@ namespace HitobitoConnector;
 
 interface HitobitoConnectorInterface
 {
+
+    const test = 'test';
+
 //    /**
 //     * RestClientInterface constructor.
 //     * @param string $url
