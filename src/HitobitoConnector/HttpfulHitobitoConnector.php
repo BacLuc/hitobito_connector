@@ -41,7 +41,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     private $httpfulinstance;
 
 
-    public function __construct($baseurl, $useremail, $password, Request $httpfulinstance)
+    public function __construct($baseurl, $useremail, $password, RequestInterface $httpfulinstance)
     {
         $this->baseurl = $baseurl;
         $this->useremail = $useremail;

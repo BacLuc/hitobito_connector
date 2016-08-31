@@ -3,17 +3,18 @@
 namespace HitobitoConnector\Test;
 
 use HitobitoConnector\HttpfulHitobitoConnector;
+use HitobitoConnector\HttpfulRequestConnector;
 use Httpful\Request;
 use PHPUnit\Framework\TestCase;
 
 class HttpfulHitobitoConnectorTest extends TestCase{
     function testLoad(){
-        $object = new HttpfulHitobitoConnector(null,null,null,Request::get(null));
+        $object = new HttpfulHitobitoConnector(null,null,null,HttpfulRequestConnector::get(null));
         $this->assertEquals("HitobitoConnector\\HttpfulHitobitoConnector", get_class($object));
     }
 
     function testConstruct(){
-        $request = Request::post(null);
+        $request = HttpfulRequestConnector::post(null);
         $testurl = "testurl";
         $testemail = "testemail";
         $testpassword = "testpassword";
