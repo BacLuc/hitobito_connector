@@ -6,4 +6,4 @@
  * Time: 18:09
  */
 $loader = require __DIR__ . '/../vendor/autoload.php';
-$loader->add('Hitobito\\Test\\', __DIR__."/HitobitoConnector");
+$loader->addPsr4('HitobitoConnector\\',array( __DIR__));

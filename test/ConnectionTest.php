@@ -6,7 +6,7 @@
  * Time: 19:44
  */
 
-namespace HitobitoConnector\Test\HitobitoConnector;
+namespace HitobitoConnector\HitobitoConnector;
 
 
 use PHPUnit\Framework\TestCase;

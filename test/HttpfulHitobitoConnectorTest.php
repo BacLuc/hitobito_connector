@@ -1,9 +1,10 @@
 <?php
 
-namespace HitobitoConnector\Test;
+namespace HitobitoConnector;
 
 use HitobitoConnector\HttpfulHitobitoConnector;
 use HitobitoConnector\HttpfulRequestConnector;
+use HitobitoConnector\Mocks\RequestMock;
 use Httpful\Request;
 use PHPUnit\Framework\TestCase;
 
@@ -25,6 +26,30 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertEquals($testpassword, $object->getUserpassword());
 
     }
+
+    function testAuth(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $object->sendAuth();
+
+        $lastAction = $request->getLastAction();
+        $this->assertArrayHasKey("name", $lastAction, "sendAuth not Implemented");
+
+
+        $expectedurl = "$testurl/users/sign_in.json?person[email]=$testemail&person[password]=$testpassword";
+
+        $this->assertEquals($lastAction['name'], "post");
+        $this->assertEquals($expectedurl, $lastAction['parameters']['url']);
+
+
+
+
+    }
+
+
 
 
 }
