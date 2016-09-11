@@ -35,14 +35,16 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
         $object->sendAuth();
 
-        $lastAction = $request->getLastAction();
-        $this->assertArrayHasKey("name", $lastAction, "sendAuth not Implemented");
+        $lastActions = $request->getLastActions();
+        $lastAction = $lastActions[0];
+
+        $this->assertArrayHasKey("method", $lastAction, "sendAuth not Implemented");
 
 
         $expectedurl = "$testurl/users/sign_in.json?person[email]=$testemail&person[password]=$testpassword";
 
-        $this->assertEquals($lastAction['name'], "post");
-        $this->assertEquals($expectedurl, $lastAction['parameters']['url']);
+        $this->assertEquals($lastAction['method'], "post");
+        $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
 
 
 

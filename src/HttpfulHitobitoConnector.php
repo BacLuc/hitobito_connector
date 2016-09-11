@@ -56,6 +56,25 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     public function sendAuth()
     {
         // TODO: Implement sendAuth() method.
+        $url = $this->baseurl;
+        if($url[strlen($url)-1] != "/"){
+            $url .= "/";
+        }
+        $url .= "users/sign_in.json?person[email]=".$this->useremail."&person[password]=".$this->userpassword;
+
+        //call the request tool static, because it is static defined
+        $classname = get_class($this->httpfulinstance);
+        /**
+         *
+         */
+        $response = $classname::post($url)->send();
+        if($response->code == 200){
+            $this->token = $response->body->people[0]->authentication_token;
+        }else{
+            throw new \HttpException("Authentification failed.");
+        }
+
+
     }
 
     /**

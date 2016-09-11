@@ -89,6 +89,7 @@ trait MockTrait
     public static function __callStatic($name, $arguments)
     {
 
+        static::getInstance()->addLastAction($name, $arguments);
         if(method_exists(static::class,$name)){
             return call_user_func(array(static::class, $name), $arguments);
         }
@@ -97,5 +98,9 @@ trait MockTrait
     public function addLastAction($name,array $parameters){
         $this->lastActions[] = array("method" => $name, "parameters" => $parameters);
         return $this;
+    }
+
+    public function getLastActions(){
+        return $this->lastActions;
     }
 }
