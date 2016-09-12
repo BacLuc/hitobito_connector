@@ -1,0 +1,13 @@
+<phpunit bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="HitobitoConnector">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <const name="WEB_SERVER_DOCROOT" value="./static" />
+    </php>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    </logging>
+</phpunit>
