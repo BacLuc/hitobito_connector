@@ -30,6 +30,7 @@ class Group extends BaseEntity
     private $group_type;
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getId(): string
