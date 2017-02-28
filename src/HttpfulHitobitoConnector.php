@@ -50,24 +50,54 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
         $this->httpfulinstance = $httpfulinstance;
     }
 
-    /**
-     * Sends the Auth Request and saves the token in a member and returns it
-     * @return string token
-     */
-    public function sendAuth()
-    {
+    private function sendRequestWithAuth($method = 'get', $path){
         $url = $this->baseurl;
         if($url[strlen($url)-1] != "/"){
             $url .= "/";
         }
-        $url .= "users/sign_in.json?person[email]=".$this->useremail."&person[password]=".$this->userpassword;
+        $url .= "$path?person[email]=".$this->useremail."&person[password]=".$this->userpassword;
 
         //call the request tool static, because it is static defined
         $classname = get_class($this->httpfulinstance);
         /**
          *
          */
-        $response = $classname::post($url)->send();
+        $request = null;
+        switch ($method){
+            case "post":
+                $request = $classname::post($url);
+                break;
+            case "put":
+                $request = $classname::put($url);
+                break;
+            case "delete":
+                $request = $classname::delete($url);
+                break;
+            case "head":
+                $request = $classname::head($url);
+                break;
+            case "options":
+                $request = $classname::options($url);
+                break;
+            case "patch":
+                $request = $classname::patch($url);
+                break;
+
+            default:
+                $request = $classname::get($url);
+                break;
+
+        }
+        return $request->send();
+    }
+
+    /**
+     * Sends the Auth Request and saves the token in a member and returns it
+     * @return string token
+     */
+    public function sendAuth()
+    {
+        $response = $this->sendRequestWithAuth("post", "users/sign_in.json");
         if($response->code == 200){
             $this->token = $response->body->people[0]->authentication_token;
         }else{
@@ -83,7 +113,23 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function regenerateToken()
     {
-        // TODO: Implement regenerateToken() method.
+        $response = $this->sendRequestWithAuth("post", "users/token.json");
+        if($response->code == 200){
+            $this->token = $response->body->people[0]->authentication_token;
+        }else{
+            throw new HttpException("Authentification failed.");
+        }
+        return $this;
+    }
+
+    public function deleteToken(){
+        $response = $this->sendRequestWithAuth("delete", "users/token.json");
+        if($response->code == 200){
+            $this->token = null;
+        }else{
+            throw new HttpException("Authentification failed.");
+        }
+        return $this;
     }
 
     /**
@@ -157,7 +203,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     /**
      * @return string
      */
-    public function getToken(): string
+    public function getToken()
     {
         return $this->token;
     }

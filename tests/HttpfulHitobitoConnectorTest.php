@@ -46,14 +46,15 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertEquals($object,$methodResponse,"the object was not returned by sendAuth");
 
         $lastActions = $request->getLastActions();
-        $lastAction = $lastActions[0];
+        $lastAction = $lastActions[count($lastActions)-2];
 
         $this->assertArrayHasKey("method", $lastAction, "sendAuth not Implemented");
 
 
         $expectedurl = "$testurl/users/sign_in.json?person[email]=$testemail&person[password]=$testpassword";
 
-        $this->assertEquals($lastAction['method'], "post");
+
+        $this->assertEquals( "post",$lastAction['method']);
         $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
 
 
@@ -102,14 +103,14 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertEquals($object,$methodResponse,"the object was not returned by regenerateToken");
 
         $lastActions = $request->getLastActions();
-        $lastAction = $lastActions[0];
+        $lastAction = $lastActions[count($lastActions)-2];
 
         $this->assertArrayHasKey("method", $lastAction, "regenerateToken not Implemented");
 
 
         $expectedurl = "$testurl/users/token.json?person[email]=$testemail&person[password]=$testpassword";
 
-        $this->assertEquals($lastAction['method'], "post");
+        $this->assertEquals( "post",$lastAction['method']);
         $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
 
 
@@ -151,25 +152,26 @@ class HttpfulHitobitoConnectorTest extends TestCase{
 
         //test success
         $request->setNextAnswer(RequestMock::DELETE_TOKEN_ANSWER_SUCCESS);
-        $methodResponse = $object->regenerateToken();
+        $methodResponse = $object->deleteToken();
 
         $this->assertEquals($object,$methodResponse,"the object was not returned by deleteToken");
 
         $lastActions = $request->getLastActions();
-        $lastAction = $lastActions[0];
+        $lastAction = $lastActions[count($lastActions)-2];
 
         $this->assertArrayHasKey("method", $lastAction, "deleteToken not Implemented");
 
 
         $expectedurl = "$testurl/users/token.json?person[email]=$testemail&person[password]=$testpassword";
 
-        $this->assertEquals($lastAction['method'], "delete");
+
+        $this->assertEquals( "delete",$lastAction['method']);
         $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
 
 
         //now test if the answer is handled correctly
 
-        $this->assertNull(strlen($object->getToken()), "after deleting the token, the token in the class should be null");
+        $this->assertNull($object->getToken(), "after deleting the token, the token in the class should be null");
     }
 
 
