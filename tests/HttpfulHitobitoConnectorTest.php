@@ -47,6 +47,10 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
 
 
+        //now test if the answer is handled correctly
+
+
+
 
 
     }

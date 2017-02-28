@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2149d6f9-887e-4600-b910-a275e2b3aaec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hitobito_connector.iml" afterPath="$PROJECT_DIR$/.idea/hitobito_connector.iml" />
+    <list default="true" id="2149d6f9-887e-4600-b910-a275e2b3aaec" name="Default" comment="add whitelist for code coverage report">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HttpfulHitobitoConnector.php" afterPath="$PROJECT_DIR$/src/HttpfulHitobitoConnector.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php" afterPath="$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Mocks/RequestMock.php" afterPath="$PROJECT_DIR$/tests/Mocks/RequestMock.php" />
     </list>
     <ignored path="hitobito_connector.iws" />
@@ -43,18 +42,38 @@
       <file leaf-file-name="HttpfulHitobitoConnector.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HttpfulHitobitoConnector.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-512">
-              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="352">
+              <caret line="71" column="14" lean-forward="true" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestMock.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequestMock.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Mocks/RequestMock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+            <state relative-caret-position="211">
+              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpfulHitobitoConnectorTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,7 +82,7 @@
       <file leaf-file-name="MockTrait.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Mocks/MockTrait.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2751">
+            <state relative-caret-position="-2304">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -113,7 +132,10 @@
         <option value="$PROJECT_DIR$/test/Mocks/MockTrait.php" />
         <option value="$PROJECT_DIR$/test/HttpfulHitobitoConnectorTest.php" />
         <option value="$PROJECT_DIR$/src/HttpfulHitobitoConnector.php" />
+        <option value="$PROJECT_DIR$/tests/phpunit.xml" />
+        <option value="$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php" />
         <option value="$PROJECT_DIR$/tests/Mocks/RequestMock.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -122,6 +144,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1/hitobito_connector" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7">
@@ -278,6 +303,9 @@
       <TestRunner directory="$PROJECT_DIR$/tests" />
       <method />
     </configuration>
+    <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -299,6 +327,9 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
@@ -378,7 +409,7 @@
       <workItem from="1473070799382" duration="13000" />
       <workItem from="1473624650840" duration="4233000" />
       <workItem from="1473664507955" duration="510000" />
-      <workItem from="1488270995679" duration="3183000" />
+      <workItem from="1488270995679" duration="5208000" />
     </task>
     <task id="LOCAL-00001" summary="made everything independent from everything">
       <created>1472653741523</created>
@@ -401,28 +432,24 @@
       <option name="project" value="LOCAL" />
       <updated>1473628342198</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add headers/bodies for signin, regenerate and delete">
+      <created>1488278612910</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1488278612910</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add whitelist for code coverage report">
+      <created>1488279220980</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1488279220980</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test - 2016.09.11 at 21h 59m 06s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="test - 2016.09.11 at 21h 59m 33s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="test - 2016.09.11 at 22h 01m 06s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="test - 2016.09.11 at 22h 02m 11s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="test - 2016.09.11 at 22h 03m 02s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="test - 2016.09.11 at 22h 03m 07s.xml">
-      <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="test - 2016.09.11 at 22h 06m 51s.xml">
       <configuration name="test" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -435,9 +462,27 @@
     <history-entry file="tests - 2017.02.28 at 09h 55m 52s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="tests - 2017.02.28 at 11h 43m 42s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2017.02.28 at 11h 44m 39s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2017.02.28 at 11h 51m 38s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2017.02.28 at 11h 51m 56s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2017.02.28 at 12h 13m 31s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2017.02.28 at 12h 14m 54s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28673000" />
+    <option name="totallyTimeSpent" value="30698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -480,10 +525,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="made everything independent from everything" />
     <MESSAGE value="change from psr0 to psr4, write test for sendAuth" />
     <MESSAGE value="implement testAuth, first Test Running, Test of fail needs to be implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement testAuth, first Test Running, Test of fail needs to be implemented" />
+    <MESSAGE value="add headers/bodies for signin, regenerate and delete" />
+    <MESSAGE value="add whitelist for code coverage report" />
+    <option name="LAST_COMMIT_MESSAGE" value="add whitelist for code coverage report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -492,21 +541,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/RequestInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpfulHitobitoConnector.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1184">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/nategood/httpful/src/Httpful/Request.php" />
     <entry file="file://$PROJECT_DIR$/src/HitobitoConnectorInterface.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -612,22 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2751">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HttpfulHitobitoConnector.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-512">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -638,16 +656,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/phpunit.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="128">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2304">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HttpfulHitobitoConnector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="71" column="14" lean-forward="true" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Mocks/RequestMock.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="211">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
