@@ -26,10 +26,9 @@ trait EntityTrait
             //if it is null, maybe the string is not uft8 encoded
             if($obj===null){
                 $obj = json_decode(utf8_encode($data));
-            }
-
-            if($obj === null){
-                throw new \InvalidArgumentException("the parameter \$data has to be a proper json, so a valid json in utf8 encoded, or an array or a class.");
+                if($obj === null){
+                    throw new \InvalidArgumentException("the parameter \$data has to be a proper json, so a valid json in encoded, or an array or a class.");
+                }
             }
 
         }elseif(is_array($data) || is_object($data)){
