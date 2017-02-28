@@ -121,6 +121,26 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
         $response = $this->sendRequestWithAuth("post", "users/sign_in.json");
         if($response->code == 200){
             $this->token = $response->body->people[0]->authentication_token;
+
+            //populate person
+            $authPerson = $response->body->people[0];
+            $person = new Person();
+            $person->populateFromData($authPerson);
+            $this->authenticatedPerson =$person;
+
+            //populate groups
+            $groups = $response->body->linked->groups;
+            if(is_array($groups)){
+                foreach($groups as $num => $value){
+                    $group = new Group();
+                    $group->populateFromData($value);
+                    $this->linkedGroups[$num]=$value;
+                }
+            }
+
+            //populate links
+            $this->links = $response->body->links;
+
         }else{
             throw new HttpException("Authentification failed.");
         }

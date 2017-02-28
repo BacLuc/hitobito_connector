@@ -9,6 +9,9 @@
 namespace Entities;
 
 
-class BaseEntity
+class BaseEntity implements \JsonSerializable
 {
+    public function jsonSerialize() {
+        return (object) get_object_vars($this);
+    }
 }
