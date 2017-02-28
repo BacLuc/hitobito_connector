@@ -10,5 +10,14 @@
     <logging>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
     </logging>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src</directory>
+            <exclude>
+                <directory suffix=".php">/path/to/files</directory>
+                <file>/path/to/file</file>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
 
