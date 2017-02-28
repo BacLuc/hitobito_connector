@@ -10,6 +10,8 @@ namespace HitobitoConnector;
 
 
 use Exception\HttpException;
+use HitobitoConnector\Entities\Group;
+use HitobitoConnector\Entities\Person;
 use Httpful\Httpful;
 use Httpful\Request;
 
@@ -40,6 +42,22 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      * @var Request
      */
     private $httpfulinstance;
+
+
+    /**
+     * @var Person
+     */
+    private $authenticatedPerson;
+
+    /**
+     * @var Group[]
+     */
+    private $linkedGroups;
+
+    /**
+     * @var array
+     */
+    private $links;
 
 
     public function __construct($baseurl, $useremail, $password, RequestInterface $httpfulinstance)
@@ -88,6 +106,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
                 break;
 
         }
+        /**
+         * @var Request $request
+         */
         return $request->send();
     }
 
@@ -246,5 +267,20 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     public function setHttpfulinstance(Request $httpfulinstance)
     {
         $this->httpfulinstance = $httpfulinstance;
+    }
+
+    public function getAuthenticatedPerson()
+    {
+        return $this->authenticatedPerson;
+    }
+
+    public function getLinkedGroups()
+    {
+        return $this->linkedGroups;
+    }
+
+    public function getLinks()
+    {
+        return $this->links;
     }
 }

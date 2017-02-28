@@ -9,7 +9,10 @@
 namespace HitobitoConnector\Entities;
 
 
-class Role
-{
+use Entities\BaseEntity;
+use Entities\EntityTrait;
 
+class Role extends BaseEntity
+{
+    use EntityTrait;
 }

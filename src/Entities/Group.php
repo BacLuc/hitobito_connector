@@ -9,7 +9,11 @@
 namespace HitobitoConnector\Entities;
 
 
-class Group
+use Entities\BaseEntity;
+use Entities\EntityTrait;
+
+class Group extends BaseEntity
 {
+    use EntityTrait;
 
 }

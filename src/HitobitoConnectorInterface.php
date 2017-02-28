@@ -9,6 +9,9 @@
 namespace HitobitoConnector;
 
 
+use HitobitoConnector\Entities\Group;
+use HitobitoConnector\Entities\Person;
+
 interface HitobitoConnectorInterface
 {
 
@@ -35,6 +38,8 @@ interface HitobitoConnectorInterface
      * @return string token
      */
     public function regenerateToken();
+
+    public function deleteToken();
 
 
     /**
@@ -65,5 +70,20 @@ interface HitobitoConnectorInterface
     public function getPersonDetails($groupid, $personid);
 
 
+    /**
+     * @return Person
+     */
+    public function getAuthenticatedPerson();
+
+
+    /**
+     * @return Group[]
+     */
+    public function getLinkedGroups();
+
+    /**
+     * @return array
+     */
+    public  function getLinks();
 
 }

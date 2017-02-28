@@ -62,6 +62,19 @@ class HttpfulHitobitoConnectorTest extends TestCase{
 
         $this->assertGreaterThan(0,strlen($object->getToken()));
 
+        //check if authenticated person is set:
+        $responseStdClass = json_decode(RequestMock::SIGNIN_ANSWER_SUCCESS);
+
+        $authPerson = $responseStdClass->people[0];
+
+        $this->assertJsonStringEqualsJsonString(json_encode($authPerson), json_encode($object->getAuthenticatedPerson()));
+
+        //check if linked Groups is set
+        $linkedGroups = $responseStdClass->linked->groups;
+        $this->assertJsonStringEqualsJsonString(json_encode($linkedGroups), json_encode($object->getLinkedGroups()));
+
+
+
     }
 
     /**
@@ -82,6 +95,8 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->expectException(HttpException::class);
         $object->sendAuth();
         $this->assertNull($object->getToken(), "if authentification failes, no token should be set.");
+        $this->assertNull($object->getAuthenticatedPerson());
+        $this->assertNull($object->getLinkedGroups());
     }
 
     public function testRegenerateTokenSuccess()
@@ -130,11 +145,19 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $testemail = "test@email.com";
         $testpassword = "mypassword";
         $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+
         $tokenBefore = $object->getToken();
+        $tokenBefore = $object->getToken();
+        $authPersonBefore = $object->getAuthenticatedPerson();
+        $linkedGroupsBefore = $object->getLinkedGroups();
+
         $request->setNextAnswer(RequestMock::REGENERATE_TOKEN_ANSWER_FAILURE);
         $this->expectException(HttpException::class);
         $object->regenerateToken();
+
         $this->assertEquals($tokenBefore,$object->getToken(), "if the regenartion fails, the token should not change");
+        $this->assertEquals($authPersonBefore,$object->getAuthenticatedPerson());
+        $this->assertEquals($linkedGroupsBefore, $object->getLinkedGroups());
     }
 
 
@@ -172,6 +195,8 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         //now test if the answer is handled correctly
 
         $this->assertNull($object->getToken(), "after deleting the token, the token in the class should be null");
+        $this->assertNull($object->getAuthenticatedPerson());
+        $this->assertNull($object->getLinkedGroups());
     }
 
 
@@ -185,11 +210,17 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $testemail = "test@email.com";
         $testpassword = "mypassword";
         $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+
         $tokenBefore = $object->getToken();
+        $authPersonBefore = $object->getAuthenticatedPerson();
+        $linkedGroupsBefore = $object->getLinkedGroups();
+
         $request->setNextAnswer(RequestMock::DELETE_TOKEN_ANSWER_FAILURE);
         $this->expectException(HttpException::class);
         $object->deleteToken();
         $this->assertEquals($tokenBefore,$object->getToken(), "if the regenartion fails, the token should not change");
+        $this->assertEquals($authPersonBefore,$object->getAuthenticatedPerson());
+        $this->assertEquals($linkedGroupsBefore, $object->getLinkedGroups());
     }
 
 
