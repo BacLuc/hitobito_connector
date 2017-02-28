@@ -210,6 +210,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getUseremail()
@@ -218,6 +219,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $useremail
      */
     public function setUseremail(string $useremail)
@@ -226,6 +228,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getUserpassword()
@@ -234,6 +237,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $userpassword
      */
     public function setUserpassword(string $userpassword)
@@ -242,6 +246,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getToken()
@@ -250,6 +255,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $token
      */
     public function setToken(string $token)
@@ -258,6 +264,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getBaseurl()
@@ -266,6 +273,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $baseurl
      */
     public function setBaseurl(string $baseurl)
@@ -274,6 +282,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @return Request
      */
     public function getHttpfulinstance()
@@ -282,6 +291,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param Request $httpfulinstance
      */
     public function setHttpfulinstance(Request $httpfulinstance)
@@ -289,16 +299,28 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
         $this->httpfulinstance = $httpfulinstance;
     }
 
+    /**
+     * @codeCoverageIgnore
+     * @return Person
+     */
     public function getAuthenticatedPerson()
     {
         return $this->authenticatedPerson;
     }
 
+    /**
+     * @codeCoverageIgnore
+     * @return Group[]
+     */
     public function getLinkedGroups()
     {
         return $this->linkedGroups;
     }
 
+    /**
+     * @codeCoverageIgnore
+     * @return array
+     */
     public function getLinks()
     {
         return $this->links;

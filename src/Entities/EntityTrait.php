@@ -50,6 +50,10 @@ trait EntityTrait
 
     }
 
+    /**
+     * @codeCoverageIgnore
+     * @return object
+     */
     public function jsonSerialize() {
         return (object) get_object_vars($this);
     }

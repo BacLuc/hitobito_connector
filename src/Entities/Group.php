@@ -38,6 +38,7 @@ class Group extends BaseEntity
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $id
      * @return Group
      */
@@ -48,6 +49,7 @@ class Group extends BaseEntity
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getName(): string
@@ -56,6 +58,7 @@ class Group extends BaseEntity
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $name
      * @return Group
      */
@@ -66,6 +69,7 @@ class Group extends BaseEntity
     }
 
     /**
+     * @codeCoverageIgnore
      * @return string
      */
     public function getGroupType(): string
@@ -74,6 +78,7 @@ class Group extends BaseEntity
     }
 
     /**
+     * @codeCoverageIgnore
      * @param string $group_type
      * @return Group
      */

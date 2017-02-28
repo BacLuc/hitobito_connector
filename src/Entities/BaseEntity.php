@@ -11,6 +11,10 @@ namespace Entities;
 
 class BaseEntity implements \JsonSerializable
 {
+    /**
+     * @codeCoverageIgnore
+     * @return object
+     */
     public function jsonSerialize() {
         return (object) get_object_vars($this);
     }
