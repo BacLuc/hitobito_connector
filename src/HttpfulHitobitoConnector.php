@@ -9,6 +9,7 @@
 namespace HitobitoConnector;
 
 
+use Exception\HttpException;
 use Httpful\Httpful;
 use Httpful\Request;
 
@@ -70,9 +71,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
         if($response->code == 200){
             $this->token = $response->body->people[0]->authentication_token;
         }else{
-            throw new \HttpException("Authentification failed.");
+            throw new HttpException("Authentification failed.");
         }
-
+        return $this;
 
     }
 

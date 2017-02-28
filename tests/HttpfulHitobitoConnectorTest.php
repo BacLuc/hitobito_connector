@@ -2,6 +2,7 @@
 
 namespace HitobitoConnector;
 
+use Exception\HttpException;
 use HitobitoConnector\HttpfulHitobitoConnector;
 use HitobitoConnector\HttpfulRequestConnector;
 use HitobitoConnector\Mocks\RequestMock;
@@ -27,13 +28,22 @@ class HttpfulHitobitoConnectorTest extends TestCase{
 
     }
 
-    function testAuth(){
+    function testAuthSuccess(){
+        /**
+         * @var RequestMock $request
+         */
         $request = RequestMock::getInstance();
         $testurl = "http://test.com";
         $testemail = "test@email.com";
         $testpassword = "mypassword";
         $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
-        $object->sendAuth();
+
+
+        //test success
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_SUCCESS);
+        $methodResponse = $object->sendAuth();
+
+        $this->assertEquals($object,$methodResponse,"the object was not returned by sendAuth");
 
         $lastActions = $request->getLastActions();
         $lastAction = $lastActions[0];
@@ -49,13 +59,30 @@ class HttpfulHitobitoConnectorTest extends TestCase{
 
         //now test if the answer is handled correctly
 
+        $this->assertGreaterThan(0,strlen($object->getToken()));
+
+
 
 
 
 
     }
 
-
+    /**
+     * @param $request
+     * @param $object
+     */
+    public function testAuthFailure()
+    {
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_FAILURE);
+        $this->expectException(HttpException::class);
+        $object->sendAuth();
+    }
 
 
 }
