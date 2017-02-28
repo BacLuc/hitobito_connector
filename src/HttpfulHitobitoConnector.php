@@ -171,7 +171,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     /**
      * @return string
      */
-    public function getUseremail(): string
+    public function getUseremail()
     {
         return $this->useremail;
     }
@@ -187,7 +187,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     /**
      * @return string
      */
-    public function getUserpassword(): string
+    public function getUserpassword()
     {
         return $this->userpassword;
     }
@@ -219,7 +219,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     /**
      * @return string
      */
-    public function getBaseurl(): string
+    public function getBaseurl()
     {
         return $this->baseurl;
     }
@@ -235,7 +235,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     /**
      * @return Request
      */
-    public function getHttpfulinstance(): Request
+    public function getHttpfulinstance()
     {
         return $this->httpfulinstance;
     }
