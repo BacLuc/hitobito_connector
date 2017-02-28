@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2149d6f9-887e-4600-b910-a275e2b3aaec" name="Default" comment="add whitelist for code coverage report">
+    <list default="true" id="2149d6f9-887e-4600-b910-a275e2b3aaec" name="Default" comment="use header template instead of multiple headers">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php" afterPath="$PROJECT_DIR$/tests/HttpfulHitobitoConnectorTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Mocks/RequestMock.php" afterPath="$PROJECT_DIR$/tests/Mocks/RequestMock.php" />
     </list>
     <ignored path="hitobito_connector.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +60,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+            <state relative-caret-position="64">
+              <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -409,7 +407,7 @@
       <workItem from="1473070799382" duration="13000" />
       <workItem from="1473624650840" duration="4233000" />
       <workItem from="1473664507955" duration="510000" />
-      <workItem from="1488270995679" duration="5208000" />
+      <workItem from="1488270995679" duration="5363000" />
     </task>
     <task id="LOCAL-00001" summary="made everything independent from everything">
       <created>1472653741523</created>
@@ -446,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488279220980</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="use header template instead of multiple headers">
+      <created>1488280628318</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1488280628318</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -482,7 +487,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30698000" />
+    <option name="totallyTimeSpent" value="30853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -532,7 +537,8 @@
     <MESSAGE value="implement testAuth, first Test Running, Test of fail needs to be implemented" />
     <MESSAGE value="add headers/bodies for signin, regenerate and delete" />
     <MESSAGE value="add whitelist for code coverage report" />
-    <option name="LAST_COMMIT_MESSAGE" value="add whitelist for code coverage report" />
+    <MESSAGE value="use header template instead of multiple headers" />
+    <option name="LAST_COMMIT_MESSAGE" value="use header template instead of multiple headers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -696,8 +702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        <state relative-caret-position="64">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
         </state>
       </provider>
