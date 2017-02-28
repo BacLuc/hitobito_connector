@@ -55,7 +55,6 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function sendAuth()
     {
-        // TODO: Implement sendAuth() method.
         $url = $this->baseurl;
         if($url[strlen($url)-1] != "/"){
             $url .= "/";
