@@ -245,7 +245,19 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $object->sendAuth();
         $request->setNextAnswer(RequestMock::GET_GROUPS_ANSWER_SUCCESS);
 
+
+
         $response = $object->getGroups();
+
+        $lastActions = $request->getLastActions();
+        $lastAction = $lastActions[count($lastActions)-2];
+        $expectedurl = "$testurl/groups.json?user_email=$testemail&user_token=".$object->getToken();
+
+        $this->assertEquals( "get",$lastAction['method']);
+        $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
+
+
+
         $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUPS_ANSWER_SUCCESS, json_encode($response));
     }
 
