@@ -2,6 +2,7 @@
 
 namespace HitobitoConnector;
 
+use Exception\HitobitoConnectorException;
 use Exception\HttpException;
 use HitobitoConnector\HttpfulHitobitoConnector;
 use HitobitoConnector\HttpfulRequestConnector;
@@ -223,6 +224,30 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertEquals($linkedGroupsBefore, $object->getLinkedGroups());
     }
 
+    public function testGetGroupsNotLoggedIn(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::REGENERATE_TOKEN_ANSWER_FAILURE);
+        $this->expectException(HitobitoConnectorException::class);
+        $object->getGroups();
+    }
+
+    public function testGetGroupsSuccess(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_SUCCESS);
+        $object->sendAuth();
+        $request->setNextAnswer(RequestMock::GET_GROUPS_ANSWER_SUCCESS);
+
+        $response = $object->getGroups();
+        $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUPS_ANSWER_SUCCESS, json_encode($response));
+    }
 
 
 

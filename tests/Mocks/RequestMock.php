@@ -77,6 +77,14 @@ class RequestMock implements RequestInterface
             static::DELETE_TOKEN_ANSWER_SUCCESS
             ,static::SIGNIN_ANSWER_SUCCESS
             ,static::REGENERATE_TOKEN_ANSWER_SUCCESS
+            ,static::GET_GROUP_2_PBS_DETAIL_ANSWER_SUCCESS
+            ,static::GET_GROUP_1145_KANT_ZURICH_SUCCESS
+            ,static::GET_GROUP_1150_KORPS_LANDENBERG
+            ,static::GET_GROUP_1156_PFADI_GRYFENBERG
+            ,static::GET_GROUP_1416_PFADISTUFE
+            ,static::GET_GROUP_1416_PEOPLE
+            ,static::GET_GROUP_2_PBS_DETAIL_ANSWER_SUCCESS
+            ,static::GET_GROUP_1416_PEOPLE_XYZ
         ))){
             $this->nextCode="200";
         }
