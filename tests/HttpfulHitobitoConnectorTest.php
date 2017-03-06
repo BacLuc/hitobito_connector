@@ -290,5 +290,60 @@ class HttpfulHitobitoConnectorTest extends TestCase{
         $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUP_2_PBS_DETAIL_ANSWER_SUCCESS, json_encode($response));
     }
 
+    public function testPeopleOfGroupSuccess(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $groupid = 1416;
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_SUCCESS);
+        $object->sendAuth();
+        $request->setNextAnswer(RequestMock::GET_GROUP_1416_PEOPLE);
+
+
+
+        $response = $object->getPeopleOfGroup($groupid);
+
+        $lastActions = $request->getLastActions();
+        $lastAction = $lastActions[count($lastActions)-2];
+        $expectedurl = "$testurl/groups/$groupid/people.json?user_email=$testemail&user_token=".$object->getToken();
+
+        $this->assertEquals( "get",$lastAction['method']);
+        $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
+
+
+
+        $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUP_1416_PEOPLE, json_encode($response));
+    }
+
+    public function testPersonDetailSuccess(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $groupid = 1416;
+        $peopleid = 9026;
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_SUCCESS);
+        $object->sendAuth();
+        $request->setNextAnswer(RequestMock::GET_GROUP_1416_PEOPLE_XYZ);
+
+
+
+        $response = $object->getPersonDetails($groupid, $peopleid);
+
+        $lastActions = $request->getLastActions();
+        $lastAction = $lastActions[count($lastActions)-2];
+        $expectedurl = "$testurl/groups/$groupid/people/$peopleid.json?user_email=$testemail&user_token=".$object->getToken();
+
+        $this->assertEquals( "get",$lastAction['method']);
+        $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
+
+
+
+        $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUP_1416_PEOPLE_XYZ, json_encode($response));
+    }
+
 
 }

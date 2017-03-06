@@ -70,6 +70,12 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
         $this->httpfulinstance = $httpfulinstance;
     }
 
+    /**
+     * @codeCoverageIgnore
+     * @param string $method
+     * @param $path
+     * @return \Httpful\Response
+     */
     private function sendRequestWithAuth($method = 'get', $path){
         $url = $this->baseurl;
         if($url[strlen($url)-1] != "/"){
@@ -204,7 +210,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function getPeopleOfGroup($id)
     {
-        // TODO: Implement getPeopleOfGroup() method.
+        $response = $this->sendRetrieveDataRequest("/groups/$id/people");
+
+        return $this->handleGetDataResponse($response);
     }
 
     /**
@@ -214,7 +222,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function getPersonDetails($groupid, $personid)
     {
-        // TODO: Implement getPersonDetails() method.
+        $response = $this->sendRetrieveDataRequest("/groups/$groupid/people/$personid");
+
+        return $this->handleGetDataResponse($response);
     }
 
     /**
@@ -335,6 +345,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param $path string
      * @return mixed
      */
@@ -347,6 +358,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     }
 
     /**
+     * @codeCoverageIgnore
      * @param $response
      * @return mixed
      * @throws HitobitoConnectorException
