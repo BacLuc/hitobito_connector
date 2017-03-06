@@ -180,22 +180,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function getGroups()
     {
-        $url = $this->getBaseurl()."/groups.json?user_email={$this->getUseremail()}&user_token=".$this->getToken();
-        $classname = get_class($this->httpfulinstance);
-        $response = $classname::get($url)->send();
+        $response = $this->sendRetrieveDataRequest("/groups");
 
-        if($response->code == 200){
-            return $response->body;
-        }else{
-            if(property_exists($response->body,"error" )){
-                $errorBody = json_decode(RequestMock::REGENERATE_TOKEN_ANSWER_FAILURE);
-                if($errorBody->error == $response->body->error){
-                    throw new HitobitoConnectorException("You have to sign in, before you start retrieving data");
-                }else{
-                    throw new HttpException($response->code);
-                }
-            }
-        }
+        return $this->handleGetDataResponse($response);
 
 
     }
@@ -206,7 +193,9 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
      */
     public function getGroupDetails($id)
     {
-        // TODO: Implement getGroupDetails() method.
+        $response = $this->sendRetrieveDataRequest("/groups/$id");
+
+        return $this->handleGetDataResponse($response);
     }
 
     /**
@@ -343,5 +332,39 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
     public function getLinks()
     {
         return $this->links;
+    }
+
+    /**
+     * @param $path string
+     * @return mixed
+     */
+    private function sendRetrieveDataRequest($path)
+    {
+        $url = $this->getBaseurl() . $path.".json?user_email={$this->getUseremail()}&user_token=" . $this->getToken();
+        $classname = get_class($this->httpfulinstance);
+        $response = $classname::get($url)->send();
+        return $response;
+    }
+
+    /**
+     * @param $response
+     * @return mixed
+     * @throws HitobitoConnectorException
+     * @throws HttpException
+     */
+    private function handleGetDataResponse($response)
+    {
+        if ($response->code == 200) {
+            return $response->body;
+        } else {
+            if (property_exists($response->body, "error")) {
+                $errorBody = json_decode(RequestMock::REGENERATE_TOKEN_ANSWER_FAILURE);
+                if ($errorBody->error == $response->body->error) {
+                    throw new HitobitoConnectorException("You have to sign in, before you start retrieving data");
+                } else {
+                    throw new HttpException($response->code);
+                }
+            }
+        }
     }
 }

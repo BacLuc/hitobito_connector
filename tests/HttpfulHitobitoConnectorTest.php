@@ -263,4 +263,32 @@ class HttpfulHitobitoConnectorTest extends TestCase{
 
 
 
+    public function testGetGroupDetailSuccess(){
+        $request = RequestMock::getInstance();
+        $testurl = "http://test.com";
+        $testemail = "test@email.com";
+        $testpassword = "mypassword";
+        $groupid = 2;
+        $object = new HttpfulHitobitoConnector($testurl,$testemail,$testpassword, $request);
+        $request->setNextAnswer(RequestMock::SIGNIN_ANSWER_SUCCESS);
+        $object->sendAuth();
+        $request->setNextAnswer(RequestMock::GET_GROUPS_ANSWER_SUCCESS);
+
+
+
+        $response = $object->getGroupDetails($groupid);
+
+        $lastActions = $request->getLastActions();
+        $lastAction = $lastActions[count($lastActions)-2];
+        $expectedurl = "$testurl/groups/$groupid.json?user_email=$testemail&user_token=".$object->getToken();
+
+        $this->assertEquals( "get",$lastAction['method']);
+        $this->assertEquals($expectedurl, $lastAction['parameters'][0]);
+
+
+
+        $this->assertJsonStringEqualsJsonString(RequestMock::GET_GROUP_2_PBS_DETAIL_ANSWER_SUCCESS, json_encode($response));
+    }
+
+
 }
