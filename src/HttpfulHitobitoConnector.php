@@ -9,16 +9,16 @@
 namespace HitobitoConnector;
 
 
-use Exception\HitobitoConnectorException;
-use Exception\HttpException;
+use HitobitoConnector\Exception\HitobitoConnectorException;
+use HitobitoConnector\Exception\HttpException;
 use HitobitoConnector\Entities\Group;
 use HitobitoConnector\Entities\Person;
-use HitobitoConnector\Mocks\RequestMock;
 use Httpful\Httpful;
 use Httpful\Request;
 
 class HttpfulHitobitoConnector implements HitobitoConnectorInterface
 {
+    const REGENERATE_TOKEN_ANSWER_FAILURE = "{\"error\":\"Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst.\"}";
 
     /**
      * @var string
@@ -370,7 +370,7 @@ class HttpfulHitobitoConnector implements HitobitoConnectorInterface
             return $response->body;
         } else {
             if (property_exists($response->body, "error")) {
-                $errorBody = json_decode(RequestMock::REGENERATE_TOKEN_ANSWER_FAILURE);
+                $errorBody = json_decode(static::REGENERATE_TOKEN_ANSWER_FAILURE);
                 if ($errorBody->error == $response->body->error) {
                     throw new HitobitoConnectorException("You have to sign in, before you start retrieving data");
                 } else {

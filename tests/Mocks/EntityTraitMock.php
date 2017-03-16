@@ -6,7 +6,7 @@
  * Time: 17:36
  */
 
-namespace HitobitoConnector\Mocks;
+namespace HitobitoConnector\Test\Mocks;
 
 
 use Entities\BaseEntity;
@@ -33,6 +33,10 @@ class EntityTraitMock extends BaseEntity
     {
         $this->testproperty = $testproperty;
         return $this;
+    }
+
+    public function getId(){
+        return 1;
     }
 
 }

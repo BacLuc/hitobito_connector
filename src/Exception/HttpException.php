@@ -6,7 +6,7 @@
  * Time: 13:53
  */
 
-namespace Exception;
+namespace HitobitoConnector\Exception;
 
 
 class HttpException extends \Exception

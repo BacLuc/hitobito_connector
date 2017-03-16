@@ -15,4 +15,10 @@ use Entities\EntityTrait;
 class Role extends BaseEntity
 {
     use EntityTrait;
+
+    public function getId()
+    {
+        // TODO: Implement getId() method.
+        return 1;
+    }
 }

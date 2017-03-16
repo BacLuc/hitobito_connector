@@ -6,7 +6,7 @@
  * Time: 14:37
  */
 
-namespace Exception;
+namespace HitobitoConnector\Exception;
 
 
 class HitobitoConnectorException extends \Exception

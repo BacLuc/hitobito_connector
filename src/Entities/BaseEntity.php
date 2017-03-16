@@ -9,8 +9,9 @@
 namespace Entities;
 
 
-class BaseEntity implements \JsonSerializable
+abstract class BaseEntity implements \JsonSerializable
 {
+    public abstract function getId();
     /**
      * @codeCoverageIgnore
      * @return object

@@ -1,14 +1,14 @@
 <?php
 
-namespace HitobitoConnector;
+namespace HitobitoConnector\Test;
 
-use Exception\HitobitoConnectorException;
-use Exception\HttpException;
+use HitobitoConnector\Exception\HitobitoConnectorException;
+use HitobitoConnector\Exception\HttpException;
 use HitobitoConnector\HttpfulHitobitoConnector;
 use HitobitoConnector\HttpfulRequestConnector;
-use HitobitoConnector\Mocks\RequestMock;
 use Httpful\Request;
 use PHPUnit\Framework\TestCase;
+use HitobitoConnector\Test\Mocks\RequestMock;
 
 class HttpfulHitobitoConnectorTest extends TestCase{
     function testLoad(){

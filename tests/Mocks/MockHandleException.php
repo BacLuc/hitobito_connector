@@ -6,7 +6,7 @@
  * Time: 13:32
  */
 
-namespace HitobitoConnector\Mocks;
+namespace HitobitoConnector\Test\Mocks;
 
 
 

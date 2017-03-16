@@ -6,9 +6,10 @@
  * Time: 15:06
  */
 
-namespace HitobitoConnector\Mocks;
+namespace HitobitoConnector\Test\Mocks;
 
 
+use HitobitoConnector\HttpfulHitobitoConnector;
 use HitobitoConnector\RequestInterface;
 use Httpful\Request;
 use Httpful\Response;
@@ -29,7 +30,7 @@ class RequestMock implements RequestInterface
     const REGENERATE_TOKEN_ANSWER_SUCCESS="{\"people\":[{\"id\":\"8542\",\"type\":\"people\",\"href\":\"https://db.scout.ch/de/groups/1416/people/8542.json\",\"first_name\":\"Firstname\",\"last_name\":\"Lastname\",\"nickname\":\"Nickname\",\"company_name\":\"\",\"company\":false,\"gender\":\"m\",\"email\":\"name@host.tld\",\"authentication_token\":\"wvYfeJ-tgzmfu-sFD6bm\",\"last_sign_in_at\":\"2017-01-11T10:52:53.000+01:00\",\"current_sign_in_at\":\"2017-02-28T11:30:20.000+01:00\",\"links\":{\"primary_group\":\"1416\"}}],\"linked\":{\"groups\":[{\"id\":\"1416\",\"name\":\"Pfadi\",\"group_type\":\"Pfadi\"}]},\"links\":{\"token.regenerate\":{\"method\":\"POST\",\"href\":\"https://db.scout.ch/de/users/token.json\",\"type\":\"tokens\"},\"token.delete\":{\"method\":\"DELETE\",\"href\":\"https://db.scout.ch/de/users/token.json\",\"type\":\"tokens\"}}}";
 
     //status 401
-    const REGENERATE_TOKEN_ANSWER_FAILURE = "{\"error\":\"Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst.\"}";
+    const REGENERATE_TOKEN_ANSWER_FAILURE = HttpfulHitobitoConnector::REGENERATE_TOKEN_ANSWER_FAILURE;
 
     //status 200
     const DELETE_TOKEN_ANSWER_SUCCESS = "{\"people\":[{\"id\":\"8542\",\"type\":\"people\",\"href\":\"https://db.scout.ch/de/groups/1416/people/8542.json\",\"first_name\":\"Firstname\",\"last_name\":\"Lastname\",\"nickname\":\"Nickname\",\"company_name\":\"\",\"company\":false,\"gender\":\"m\",\"email\":\"name@host.tld\",\"authentication_token\":null,\"last_sign_in_at\":\"2017-01-11T10:52:53.000+01:00\",\"current_sign_in_at\":\"2017-02-28T11:30:20.000+01:00\",\"links\":{\"primary_group\":\"1416\"}}],\"linked\":{\"groups\":[{\"id\":\"1416\",\"name\":\"Pfadi\",\"group_type\":\"Pfadi\"}]},\"links\":{\"token.regenerate\":{\"method\":\"POST\",\"href\":\"https://db.scout.ch/de/users/token.json\",\"type\":\"tokens\"},\"token.delete\":{\"method\":\"DELETE\",\"href\":\"https://db.scout.ch/de/users/token.json\",\"type\":\"tokens\"}}}";

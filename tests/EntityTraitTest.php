@@ -6,10 +6,12 @@
  * Date: 28.02.17
  * Time: 17:38
  */
+namespace HitobitoConnector\Test;
 
 use PHPUnit\Framework\TestCase;
-use HitobitoConnector\Mocks\EntityTraitMock;
+use HitobitoConnector\Test\Mocks\EntityTraitMock;
 use Entities\EntityTrait;
+use PHPUnit_Framework_Error_Notice;
 
 class EntityTraitTest extends TestCase
 {
