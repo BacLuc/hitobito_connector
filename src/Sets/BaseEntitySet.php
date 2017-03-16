@@ -52,7 +52,7 @@ abstract class BaseEntitySet
     public function elementExists(BaseEntity $element){
         $this->checkType($element);
         $this->checkIdNotNull($element);
-        return array_key_exists($element->getId(),$this->elements);
+        return array_key_exists($element->getId(),$this->elements) !==false;
     }
 
     /**
@@ -82,7 +82,7 @@ abstract class BaseEntitySet
      * @return bool
      */
     public function idExists(int $id){
-        return array_key_exists($id,$this->elements);
+        return array_key_exists($id,$this->elements) !==false;
     }
 
     /**
