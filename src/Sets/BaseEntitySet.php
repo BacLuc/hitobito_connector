@@ -6,7 +6,7 @@
  * Time: 10:45
  */
 
-namespace Sets;
+namespace HitobitoConnector\Sets;
 
 
 use Entities\BaseEntity;

@@ -10,7 +10,7 @@ namespace HitobitoConnector\Test;
 
 use HitobitoConnector\Entities\Group;
 use HitobitoConnector\Entities\Person;
-use Sets\GroupSet;
+use HitobitoConnector\Sets\GroupSet;
 use PHPUnit\Framework\TestCase;
 
 
