@@ -11,6 +11,6 @@ use HitobitoConnector\Sets\BaseEntitySet;
 
 class RoleSet extends BaseEntitySet
 {
-    const ENTITY_TYPE = "HitobitoConnector\\Entities\\People";
+    const ENTITY_TYPE = "HitobitoConnector\\Entities\\Role";
 
 }
