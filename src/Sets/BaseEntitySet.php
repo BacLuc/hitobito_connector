@@ -9,7 +9,6 @@
 namespace Sets;
 
 
-use Doctrine\Instantiator\Exception\InvalidArgumentException;
 use Entities\BaseEntity;
 
 abstract class BaseEntitySet
@@ -35,6 +34,7 @@ abstract class BaseEntitySet
      */
     public function addElement(BaseEntity $element){
         $this->checkType($element);
+        $this->checkIdNotNull($element);
 
 
         if(!$this->elementExists($element)){
@@ -51,6 +51,7 @@ abstract class BaseEntitySet
      */
     public function elementExists(BaseEntity $element){
         $this->checkType($element);
+        $this->checkIdNotNull($element);
         return array_key_exists($element->getId(),$this->elements);
     }
 
@@ -72,6 +73,7 @@ abstract class BaseEntitySet
 
     public function getMatchingElement(BaseEntity $element){
         $this->checkType($element);
+        $this->checkIdNotNull($element);
         return $this->getElement($element->getId());
     }
 
@@ -99,6 +101,14 @@ abstract class BaseEntitySet
         if (!$this->typeMatches($element)) {
             throw new \InvalidArgumentException(sprintf(static::INVALIDARGUMENTEXCEPTION, get_class($element), static::ENTITY_TYPE));
         }
+        return true;
+    }
+
+    private function checkIdNotNull(BaseEntity $element){
+        if(strlen($element->getId()) == 0){
+            throw new \InvalidArgumentException("The id of the element must not be null");
+        }
+        return true;
     }
 
 }
