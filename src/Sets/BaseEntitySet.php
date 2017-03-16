@@ -34,9 +34,9 @@ abstract class BaseEntitySet
      * @return $this
      */
     public function addElement(BaseEntity $element){
-        if(!$this->typeMatches($element)){
-            throw new \InvalidArgumentException(static::INVALIDARGUMENTEXCEPTION, get_class($element), static::ENTITY_TYPE);
-        }
+        $this->checkType($element);
+
+
         if(!$this->elementExists($element)){
             $this->elements[$element->getId()]=$element;
         }
@@ -50,9 +50,7 @@ abstract class BaseEntitySet
      * @return bool
      */
     public function elementExists(BaseEntity $element){
-        if(!$this->typeMatches($element)){
-            throw new \InvalidArgumentException(static::INVALIDARGUMENTEXCEPTION, get_class($element), static::ENTITY_TYPE);
-        }
+        $this->checkType($element);
         return array_key_exists($element->getId(),$this->elements);
     }
 
@@ -73,9 +71,7 @@ abstract class BaseEntitySet
     }
 
     public function getMatchingElement(BaseEntity $element){
-        if(!$this->typeMatches($element)){
-            throw new \InvalidArgumentException(static::INVALIDARGUMENTEXCEPTION, get_class($element), static::ENTITY_TYPE);
-        }
+        $this->checkType($element);
         return $this->getElement($element->getId());
     }
 
@@ -93,6 +89,16 @@ abstract class BaseEntitySet
      */
     private function typeMatches(BaseEntity $entity){
         return static::ENTITY_TYPE == get_class($entity);
+    }
+
+    /**
+     * @param BaseEntity $element
+     */
+    private function checkType(BaseEntity $element)
+    {
+        if (!$this->typeMatches($element)) {
+            throw new \InvalidArgumentException(sprintf(static::INVALIDARGUMENTEXCEPTION, get_class($element), static::ENTITY_TYPE));
+        }
     }
 
 }
